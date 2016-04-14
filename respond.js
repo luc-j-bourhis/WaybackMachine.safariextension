@@ -18,6 +18,10 @@ function validate(event) {
 Wayback Machine, in the current tab */
 function respond(event) {
     if (event.command != "open_in_wayback_machine") return;
-    url = 'https://web.archive.org/web/*/' + event.userInfo;
-    safari.application.activeBrowserWindow.activeTab.url = url;
+    var p = safari.extension.settings.tab_policy;
+    var w = safari.application.activeBrowserWindow;
+    var tab = p == "current" ? w.activeTab
+            : p == "another" ? w.openTab()
+            : null;
+    tab.url = 'https://web.archive.org/web/*/' + event.userInfo;
 }
