@@ -58,5 +58,7 @@
 			<string>All</string>
 		</dict>
 	</dict>
+	<key>Website</key>
+	<string>https://github.com/luc-j-bourhis/WaybackMachine.safariextension</string>
 </dict>
 </plist>
